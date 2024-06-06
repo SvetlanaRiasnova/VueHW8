@@ -3,6 +3,7 @@
     <HeaderComponent />
     <BaseBanner
       :bannerHeader="bannerTitle"
+      :bcrumpLink="bcrumpLink"
       :bcrump="bcrump"
       :image="`url(${image})`"
     ></BaseBanner>
@@ -91,7 +92,8 @@ export default {
   data() {
     return {
       bannerTitle: "Articles & News",
-      bcrump: "Home / Blog",
+      bcrumpLink: "Home",
+      bcrump: "/ Blog",
       image: "Banner.png",
     };
   },

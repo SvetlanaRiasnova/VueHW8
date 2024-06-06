@@ -3,6 +3,9 @@
     <div class="banner__info" v-if="bannerHeader || bcrump">
       <h1 class="banner__info_header">{{ bannerHeader }}</h1>
       <div class="banner__info_breadcrump">
+        <router-link class="breadcramp__link" to="/">
+          {{ bcrumpLink }}
+        </router-link>
         {{ bcrump }}
       </div>
     </div>
@@ -14,6 +17,7 @@ export default {
   name: "BaseBanner",
   props: {
     bannerHeader: String,
+    bcrumpLink: String,
     bcrump: String,
     image: String,
   },
@@ -48,6 +52,21 @@ export default {
       font-size: 22px;
       font-weight: 400;
       line-height: 33px;
+    }
+  }
+  .breadcramp__link {
+    text-decoration: none;
+    &:hover {
+      color: #cda274;
+      transition: all 0.8s ease-out;
+    }
+    &:active {
+      color: #cda274;
+      transition: all 0.8s ease-out;
+    }
+    &:focus {
+      color: #cda274;
+      transition: all 0.8s ease-out;
     }
   }
 }

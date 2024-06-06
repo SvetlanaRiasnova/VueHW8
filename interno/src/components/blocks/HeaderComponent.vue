@@ -71,6 +71,18 @@ export default {
     font-size: 20px;
     font-weight: 400;
     line-height: 125%;
+    &:hover {
+      color: #cda274;
+      transition: all 0.8s ease-out;
+    }
+    &:active {
+      color: #cda274;
+      transition: all 0.8s ease-out;
+    }
+    &:focus {
+      color: #cda274;
+      transition: all 0.8s ease-out;
+    }
   }
 }
 </style>
