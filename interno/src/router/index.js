@@ -6,6 +6,7 @@ import BlogPage from "@/components/pages/BlogPage.vue";
 import ProjectPage from "@/components/pages/ProjectPage.vue";
 import ProjectDetailsPage from "@/components/pages/ProjectDetailsPage.vue";
 import NotFound from "@/components/pages/NotFound.vue";
+// import ArticleComponent from "@/components/blocks/ArticleComponent.vue";
 
 Vue.use(VueRouter);
 
@@ -21,9 +22,14 @@ const routes = [
     component: BlogPage,
   },
   {
-    path: "/blogdetails/:page",
+    path: "/blogdetails/:page?",
     name: "blogdetails",
     component: BlogDetailsPage,
+  },
+  {
+    path: "/blog/:page?",
+    name: "blockpage",
+    component: BlogPage,
   },
   {
     path: "/projects",
@@ -31,7 +37,7 @@ const routes = [
     component: ProjectPage,
   },
   {
-    path: "/projects/:page",
+    path: "/projects/:page?",
     name: "projectsdetails",
     component: ProjectDetailsPage,
   },

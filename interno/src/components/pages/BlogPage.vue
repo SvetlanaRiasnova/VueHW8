@@ -68,7 +68,7 @@
     <section class="blog container">
       <h2 class="blog__header blogs__title">Articles & News</h2>
       <ArticleComponent :quantity="6"></ArticleComponent>
-      <BaseCounterPage />
+      <!-- <BaseCounterPage /> -->
     </section>
     <FooterComponent />
   </div>
@@ -78,7 +78,7 @@
 import HeaderComponent from "../blocks/HeaderComponent.vue";
 import BaseBanner from "../BaseBanner.vue";
 import ArticleComponent from "../blocks/ArticleComponent.vue";
-import BaseCounterPage from "../BaseCountPage.vue";
+// import BaseCounterPage from "../BaseCountPage.vue";
 import FooterComponent from "../blocks/FooterComponent.vue";
 export default {
   name: "BlogPage",
@@ -86,7 +86,7 @@ export default {
     HeaderComponent,
     BaseBanner,
     ArticleComponent,
-    BaseCounterPage,
+    // BaseCounterPage,
     FooterComponent,
   },
   data() {

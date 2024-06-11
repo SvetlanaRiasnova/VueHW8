@@ -1,7 +1,7 @@
 <template>
   <div class="blog__articles">
     <div
-      v-for="article in countArticlesInList"
+      v-for="article in currentElements"
       :key="article.id"
       class="blog__articles_back"
     >
@@ -47,17 +47,28 @@
         </router-link>
       </div>
     </div>
+    <BaseCountPage
+      :perPage="perPage"
+      :curPage="page"
+      :length="articles.length"
+      @paginate="changePage"
+    />
   </div>
 </template>
 
 <script>
+import BaseCountPage from "../BaseCountPage.vue";
 export default {
+  components: {
+    BaseCountPage,
+  },
   name: "ArticleComponent",
   props: {
     quantity: Number,
   },
   data() {
     return {
+      page: 1,
       articles: [
         {
           id: 0,
@@ -101,16 +112,69 @@ export default {
           itemTitle: "Best For Any Office & Business Interior Solution",
           itemData: "25 December,2022",
         },
+        {
+          id: 6,
+          image: "art1.png",
+          itemHeader: "Kitchan Design",
+          itemTitle: "123Let’s Get Solution For Building Construction Work",
+          itemData: "26 December,2022",
+        },
+        {
+          id: 7,
+          image: "art2.png",
+          itemHeader: "Living Design",
+          itemTitle: "123Low Cost Latest Invented Interior Designing Ideas.",
+          itemData: "22 December,2022",
+        },
+        {
+          id: 8,
+          image: "art3.png",
+          itemHeader: "Interior Design",
+          itemTitle: "Best For Any Office & Business Interior Solution",
+          itemData: "25 December,2022",
+        },
+        {
+          id: 9,
+          image: "art4.png",
+          itemHeader: "Kitchan Design",
+          itemTitle: "123Let’s Get Solution For Building Construction Work",
+          itemData: "26 December,2022",
+        },
+        {
+          id: 10,
+          image: "art5.png",
+          itemHeader: "Living Design",
+          itemTitle: "123Low Cost Latest Invented Interior Designing Ideas.",
+          itemData: "22 December,2022",
+        },
+        {
+          id: 11,
+          image: "art6.png",
+          itemHeader: "Interior Design",
+          itemTitle: "123Best For Any Office & Business Interior Solution",
+          itemData: "25 December,2022",
+        },
       ],
     };
   },
   mounted() {},
-
-  methods: {},
+  methods: {
+    changePage(p) {
+      console.log(p);
+      this.page = p;
+    },
+  },
 
   computed: {
-    countArticlesInList() {
-      return this.articles.filter((item) => item.id < this.quantity);
+    perPage() {
+      return this.quantity;
+    },
+    currentElements() {
+      const { perPage, page } = this;
+      return this.articles.slice(
+        perPage * (page - 1),
+        perPage * (page - 1) + perPage
+      );
     },
   },
 };
